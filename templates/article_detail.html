@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <p>书名：{{ article.title }}</p>
+    <p>内容：{{ article.content }}</p>
+    <p>
+        <span>标签：</span>
+        {% for tag in article.tags.all %}
+            <span>{{ tag.name }}</span>
+        {% endfor %}
+    </p>
+    <p>作者：{{ article.author.name }}</p>
+    <form action="{% url 'delete_article' %}" method="post">
+        <input type="hidden" name="article_id" value="{{ article.id }}">
+        <input type="submit" value="删除文章">
+    </form>
+{% endblock %}

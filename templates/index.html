@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <table class="table_list">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>文章</th>
+                <th>作者</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for article in articles %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td><a href="{% url 'article_detail' article_id=article.id %}"> {{ article.title }} </a></td>
+                    <td><a href="{% url 'author_articles' author_id=article.author.id %}"> {{ article.author.name }} </a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>文章管理系统</title>
+    <link rel="stylesheet" href="{% static 'front/base.css' %}">
+</head>
+<body>
+<nav>
+    <ul class="nav">
+        <li><a href="/">首页</a></li>
+        <li><a href="{% url 'add_article' %}">发布文章</a></li>
+    </ul>
+</nav>
+{% block content %}{% endblock %}
+</body>
+</html>
